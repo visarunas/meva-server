@@ -12,5 +12,7 @@ namespace MevaWeb.DBA
         }
 
         public DbSet<Student> Students { get; set; }
+
+        public DbSet<Account> Accounts { get; set; }
     }
 }
