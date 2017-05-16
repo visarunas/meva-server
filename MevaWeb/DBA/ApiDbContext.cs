@@ -8,7 +8,7 @@ namespace MevaWeb.DBA
     {
         public ApiDbContext() : base("Connection")
         {
-
+            Database.SetInitializer<ApiDbContext>(new DropCreateDatabaseAlways< ApiDbContext>());
         }
 
         public DbSet<Student> Students { get; set; }

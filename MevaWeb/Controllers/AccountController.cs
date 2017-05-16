@@ -17,7 +17,12 @@ namespace MevaWeb.Controllers
         {
             dbContext = new ApiDbContext();
 
-            
+            var acc = new Account();
+            acc.Name = "test";
+            acc.Password = "aaaa";
+
+            dbContext.Accounts.Add(acc);
+            dbContext.SaveChanges();
         }
 
         [HttpPost]
