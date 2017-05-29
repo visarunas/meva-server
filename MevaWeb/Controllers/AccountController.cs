@@ -17,12 +17,7 @@ namespace MevaWeb.Controllers
         {
             dbContext = new ApiDbContext();
 
-            var acc = new Account();
-            acc.Name = "test";
-            acc.Password = "aaaa";
-
-            dbContext.Accounts.Add(acc);
-            dbContext.SaveChanges();
+            
         }
 
         [HttpPost]
@@ -33,6 +28,19 @@ namespace MevaWeb.Controllers
             acc.Password = password;
 
             return Ok();
+        }
+
+        [HttpPost]
+        public AuthResponse LogIn2(LogInObject obj)
+        {
+            var acc = new Account();
+            acc.Name = obj.userName;
+            acc.Password = obj.password;
+
+            var response = new AuthResponse();
+            response.Status = "OK";
+
+            return response;
         }
 
         [HttpPost]
@@ -52,4 +60,5 @@ namespace MevaWeb.Controllers
             return list;
         }
     }
+
 }
