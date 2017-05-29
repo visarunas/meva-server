@@ -17,21 +17,11 @@ namespace MevaWeb.Controllers
         {
             dbContext = new ApiDbContext();
 
-            
+
         }
 
         [HttpPost]
-        public IHttpActionResult LogIn(string userName, string password)
-        {
-            var acc = new Account();
-            acc.Name = userName;
-            acc.Password = password;
-
-            return Ok();
-        }
-
-        [HttpPost]
-        public AuthResponse LogIn2(LogInObject obj)
+        public AuthResponse LogIn(LogInObject obj)
         {
             var acc = new Account();
             acc.Name = obj.userName;
