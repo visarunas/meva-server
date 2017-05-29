@@ -21,13 +21,13 @@ namespace MevaWeb.Controllers
         }
 
         [HttpPost]
-        public AuthResponse LogIn(LogInObject obj)
+        public StatusResponse LogIn(LogInObject obj)
         {
             var acc = new Account();
             acc.Name = obj.userName;
             acc.Password = obj.password;
 
-            var response = new AuthResponse();
+            var response = new StatusResponse();
             response.Status = "OK";
 
             return response;
@@ -48,6 +48,13 @@ namespace MevaWeb.Controllers
             var list = dbContext.Accounts.ToList();
 
             return list;
+        }
+
+        public Account GetAccount(int id)
+        {
+            var acc = dbContext.Accounts.Find(id);
+
+            return acc;
         }
     }
 
